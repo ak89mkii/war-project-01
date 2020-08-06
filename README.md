@@ -27,9 +27,9 @@ Math.floor and Math.random and distribution function to randomly order and divid
 
 Shows next pair in INDEX 0 (new cards).
 
->Winning / losing pair gets placed into winner's original array's end so it adapts tto arrays with different amouts of numbers in them (imitating putting the cards at the bottom of the deck).
+>Winning / losing pair gets placed into winner's original array's end so it adapts to arrays with different amouts of numbers in them (imitating putting the cards at the bottom of the deck).
 
-## Functions:
+## Functions (Other):
 >WAR: If a tie senario, the next INDEX 0 numbers are not compared, then runs standard INDEX 0 number comparison.
 
 ## End State:
