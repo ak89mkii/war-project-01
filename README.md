@@ -41,5 +41,6 @@ Shows next pair in INDEX 0 (new cards).
 
 Supersonic Match Button: Iniates automated match at calculation speed and renders winner.
 
+>Create two piles (draw and compare piles) instead of one.
 
 

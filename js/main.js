@@ -1,12 +1,26 @@
 /*------Constants------*/
 
 
+function init() {
+    pOneDeck = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
+}
+
+
 /*------Variables (state)------*/
 // Variables might include (board/turn/winner)
 
 
+let pOneDeck, ptwoDeck = []
+
+
 /*------Cached Element References------*/
 // You might choose to put your game status here.
+
+
+const nextCard = document.getElementById("newCard");
+const startSet = document.getElementById("reStart");
+const p1Deck = document.getElementById("pOneDeck");
+const p2Deck = document.getElementById("ptwoDeck");
 
 
 /*------Event Listeners------*/
@@ -14,16 +28,18 @@
 // for a mouse-click
 
 
-// ADDEVENTLISTENER:
+// ADDEVENTLISTENER: NEW CARD BUTTON: Initiates FUNCTION 2.
+nextCard.addEventListener('click', );
 
-
-// ADDEVENTLISTENER:
-
+// ADDEVENTLISTENER: START / RESET BUTTON: Initiates FUNCTION 00.5.
+startSet.addEventListener('click', );
 
 /*------Functions------*/
 
 
 // FUNCTION 00: INIT: Game starts with cards faced down view and prompt players to start game (star / reset button).
+
+
 // FUNCTION 00.5: start / reset populates player card arrays with half of 52 cards from init array, randomized by  Math.floor and Math.random, providing index 0 for comparison (NOTE: Mechanics include display of index 0, then NEW CARD button initiates FUNCTION 2, compare, sort, and new card render.).
 
 
