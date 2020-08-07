@@ -12,7 +12,7 @@
 - CSS
 - JavaScript
 
-# Pseudo-code:
+# Pseudocode Outline:
 
 
 ## Start-Up State:
@@ -38,6 +38,8 @@ Shows next pair in INDEX 0 (new cards).
 
 # Stretch Goals:
 >Improve visual design.
+
+Supersonic Match Button: Iniates automated match at calculation speed and renders winner.
 
 
 
