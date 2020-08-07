@@ -30,7 +30,7 @@
 
 // FUNCTION 01: WAR: warCon(): If index 0 of player 1 array === index 0 of player 2 array, execute:
     // Option 01: Skip comparison of next numbers to be loaded into index 0 for comparison in both arrays and load numbers after that OR Option 02: compare index 1 numbers.
-    // Option 01 Only: Store skipped cards in "holding" array (warArray perhaps?).
+    // Option 01 (ONLY): Store skipped cards in "holding" array (warArray perhaps?).
     // FUNCTION 02 to decide winner AND "payout" of "holding" array to winner.
         // Order of "payout" of numbers / cards: winner revealed card, loser revealed card, winner "holding" array acending order (index 0, then 1...)
     // If tie, repeat FUNCTION 01.
