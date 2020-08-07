@@ -29,10 +29,17 @@ const p2Deck = document.getElementById("ptwoDeck");
 
 
 // ADDEVENTLISTENER: NEW CARD BUTTON: Initiates FUNCTION 2.
-nextCard.addEventListener('click', );
+nextCard.addEventListener('click', function() {
+    let card = "34"
+    console.log(card)
+})
 
 // ADDEVENTLISTENER: START / RESET BUTTON: Initiates FUNCTION 00.5.
-startSet.addEventListener('click', );
+startSet.addEventListener('click', function() {
+    let start = "117"
+    console.log(start)
+})
+    
 
 /*------Functions------*/
 
@@ -41,7 +48,9 @@ startSet.addEventListener('click', );
 
 
 // FUNCTION 00.5: start / reset populates player card arrays with half of 52 cards from init array, randomized by  Math.floor and Math.random, providing index 0 for comparison (NOTE: Mechanics include display of index 0, then NEW CARD button initiates FUNCTION 2, compare, sort, and new card render.).
+function randomizeDeck
 
+function distDeck
 
 
 // FUNCTION 01: WAR: warCon(): If index 0 of player 1 array === index 0 of player 2 array, execute:
