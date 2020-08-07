@@ -48,9 +48,13 @@ startSet.addEventListener('click', function() {
 
 
 // FUNCTION 00.5: start / reset populates player card arrays with half of 52 cards from init array, randomized by  Math.floor and Math.random, providing index 0 for comparison (NOTE: Mechanics include display of index 0, then NEW CARD button initiates FUNCTION 2, compare, sort, and new card render.).
-function randomizeDeck
+function randomizeDeck {
 
-function distDeck
+}
+
+function distDeck {
+    
+}
 
 
 // FUNCTION 01: WAR: warCon(): If index 0 of player 1 array === index 0 of player 2 array, execute:
