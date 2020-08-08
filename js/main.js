@@ -56,11 +56,17 @@ pTwoDeck = [55, 4, 4, 5];
 
 function distDeck() {
     if (pOneDeck[0] < pTwoDeck[0]) {
-        let wonCards = pOneDeck.splice(0, 1)
-        pTwoDeck.push(wonCards[0])
+        let wonCardsA = pTwoDeck.splice(0, 1)
+        let wonCardsB = pOneDeck.splice(0, 1)
+        pTwoDeck.push(wonCardsA[0], wonCardsB[0])
         return pTwoDeck;
-    } else if  (pOneDeck[0] > pTwoDeck[0]) {
-        return "TEMP";
+    } else if (pOneDeck[0] > pTwoDeck[0]) {
+        let wonCardsB = pOneDeck.splice(0, 1)
+        let wonCardsA = pTwoDeck.splice(0, 1)
+        pOneDeck.push(wonCardsB[0], wonCardsA[0])
+        return pOneDeck;
+    } else if (pOneDeck[0] === pTwoDeck[0]) {
+        
     }
 }
 console.log(distDeck());
