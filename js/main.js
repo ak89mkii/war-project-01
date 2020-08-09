@@ -57,7 +57,7 @@ startSet.addEventListener('click', function() {
 function distDeck1() {
     let pOneDeck = []
     for (let i = 0; i < 26; i++) {
-        pOneDeck.push(makeHalfDeck[0])
+        pOneDeck.push(makeHalfDeck[i])
     }
     return pOneDeck;
 }
@@ -65,7 +65,7 @@ function distDeck1() {
 function distDeck2() {
     let pTwoDeck = []
     for (let i = 26; i < 52; i++) {
-        pTwoDeck.push(makeHalfDeck[0])
+        pTwoDeck.push(makeHalfDeck[i])
     }
     return pTwoDeck;
 }
@@ -89,19 +89,20 @@ console.log(distDeck1(), distDeck2());
     // If either player's index 0 === null, game ends, other player winner.
     // Call FUNCTION 03.
 
-let pOneDeckNew = distDeck1()
+let pOneDeckNew = distDeck1();
+let pTwoDeckNew = distDeck2();
 
 function compareCard() {
     if (pOneDeckNew[0] < pTwoDeckNew[0]) {
-        let wonCardsA = pTwoDeck.splice(0, 1)
-        let wonCardsB = pOneDeck.splice(0, 1)
-        pTwoDeck.push(wonCardsA[0], wonCardsB[0])
-        return pTwoDeck;
-    } else if (pOneDeck[0] > pTwoDeck[0]) {
-        let wonCardsB = pOneDeck.splice(0, 1)
-        let wonCardsA = pTwoDeck.splice(0, 1)
-        pOneDeck.push(wonCardsB[0], wonCardsA[0])
-        return pOneDeck;
+        let wonCardsA = pTwoDeckNew.splice(0, 1)
+        let wonCardsB = pOneDeckNew.splice(0, 1)
+        pTwoDeckNew.push(wonCardsA[0], wonCardsB[0])
+        return pTwoDeckNew;
+    } else if (pOneDeckNew[0] > pTwoDeckNew[0]) {
+        let wonCardsB = pOneDeckNew.splice(0, 1)
+        let wonCardsA = pTwoDeckNew.splice(0, 1)
+        pOneDeckNew.push(wonCardsB[0], wonCardsA[0])
+        return pOneDeckNew;
     } else if (pOneDeck[0] === pTwoDeck[0]) {
 
     }
