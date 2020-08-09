@@ -23,7 +23,7 @@ const nextCard = document.getElementById("newCard");
 const startSet = document.getElementById("reStart");
 const p1Deck = document.getElementById("pOneDeck");
 const p2Deck = document.getElementById("ptwoDeck");
-
+const score = document.getElementById("message");
 
 /*------Event Listeners------*/
 // This is where you should put the event listener
@@ -103,8 +103,12 @@ function compareCard() {
         let wonCardsA = pTwoDeckNew.splice(0, 1)
         pOneDeckNew.push(wonCardsB[0], wonCardsA[0])
         return pOneDeckNew;
-    } else if (pOneDeck[0] === pTwoDeck[0]) {
-
+    } else if (pOneDeckNew[0] === pTwoDeckNew[0]) {
+        warCon();
+    } else if (pOneDeckNew[0] === null) {
+        score.innerHTML = "Player 2 Win!"
+    } else if (pTwoDeckNew[0] === null) {
+        score.innerHTML =  "Player 1 Win!"
     }
 }
 console.log(compareCard());
@@ -114,6 +118,10 @@ console.log(compareCard());
     // WIN PLAYER 1: Display text and/or animation indicating win.
     // WIN PLAYER 2: Display text and/or animation indicating win.
     // TIE: RENDER WAR: Displays face down card (timing about 1 second), then show new index 0 cards (FUNCTION 01 will skip the facedown card array equivalent).
+
+
+// Some References:
+// https://dev.to/ycmjason/how-to-create-range-in-javascript-539i
 
 
 // Basic Game Mechanics:
