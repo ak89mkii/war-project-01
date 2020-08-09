@@ -1,16 +1,18 @@
 /*------Constants------*/
 
 
-function init() {
-    pOneDeck = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
-}
+// function init() {
+    startDeck = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
+// }
+
+const makeHalfDeck = startDeck.splice(0, 52)
 
 
 /*------Variables (state)------*/
 // Variables might include (board/turn/winner)
 
 
-let pOneDeck, ptwoDeck = []
+// let pOneDeck, ptwoDeck = []
 
 
 /*------Cached Element References------*/
@@ -51,25 +53,24 @@ startSet.addEventListener('click', function() {
 // function randomizeDeck() {
 
 // }
-pOneDeck = [34, 2, 7];
-pTwoDeck = [55, 4, 4, 5];
 
-function distDeck() {
-    if (pOneDeck[0] < pTwoDeck[0]) {
-        let wonCardsA = pTwoDeck.splice(0, 1)
-        let wonCardsB = pOneDeck.splice(0, 1)
-        pTwoDeck.push(wonCardsA[0], wonCardsB[0])
-        return pTwoDeck;
-    } else if (pOneDeck[0] > pTwoDeck[0]) {
-        let wonCardsB = pOneDeck.splice(0, 1)
-        let wonCardsA = pTwoDeck.splice(0, 1)
-        pOneDeck.push(wonCardsB[0], wonCardsA[0])
-        return pOneDeck;
-    } else if (pOneDeck[0] === pTwoDeck[0]) {
-        
+function distDeck1() {
+    let pOneDeck = []
+    for (let i = 0; i < 26; i++) {
+        pOneDeck.push(makeHalfDeck[0])
     }
+    return pOneDeck;
 }
-console.log(distDeck());
+
+function distDeck2() {
+    let pTwoDeck = []
+    for (let i = 26; i < 52; i++) {
+        pTwoDeck.push(makeHalfDeck[0])
+    }
+    return pTwoDeck;
+}
+console.log(distDeck1(), distDeck2());
+
 
 // FUNCTION 01: WAR: warCon(): If index 0 of player 1 array === index 0 of player 2 array, execute:
     // Option 01: Skip comparison of next numbers to be loaded into index 0 for comparison in both arrays and load numbers after that OR Option 02: compare index 1 numbers.
@@ -87,6 +88,25 @@ console.log(distDeck());
     // TIE: resolve FUNCTION 01.
     // If either player's index 0 === null, game ends, other player winner.
     // Call FUNCTION 03.
+
+let pOneDeckNew = distDeck1()
+
+function compareCard() {
+    if (pOneDeckNew[0] < pTwoDeckNew[0]) {
+        let wonCardsA = pTwoDeck.splice(0, 1)
+        let wonCardsB = pOneDeck.splice(0, 1)
+        pTwoDeck.push(wonCardsA[0], wonCardsB[0])
+        return pTwoDeck;
+    } else if (pOneDeck[0] > pTwoDeck[0]) {
+        let wonCardsB = pOneDeck.splice(0, 1)
+        let wonCardsA = pTwoDeck.splice(0, 1)
+        pOneDeck.push(wonCardsB[0], wonCardsA[0])
+        return pOneDeck;
+    } else if (pOneDeck[0] === pTwoDeck[0]) {
+
+    }
+}
+console.log(compareCard());
 
 
 // FUNCTION 03: RENDER TURN: newCards(): Display corresponding, index 0 cards on top of both player card piles.
