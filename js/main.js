@@ -1,9 +1,12 @@
 /*------Constants------*/
-
+startArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 
 // function init() {
-    startDeck = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
+    deckImages = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
 // }
+const startDeck = randomizeDeck(startArray);
+
+console.log(startDeck);
 
 const makeHalfDeck = startDeck.splice(0, 52)
 
@@ -50,9 +53,18 @@ startSet.addEventListener('click', function() {
 
 
 // FUNCTION 00.5: start / reset populates player card arrays with half of 52 cards from init array, randomized by  Math.floor and Math.random, providing index 0 for comparison (NOTE: Mechanics include display of index 0, then NEW CARD button initiates FUNCTION 2, compare, sort, and new card render.).
-// function randomizeDeck() {
 
-// }
+function randomizeDeck(arr) {
+    let newPos,
+        temp;
+    for (let i = arr.length -1; i > 0; i--) {
+        newPos = Math.floor(Math.random() * (i + 1));
+        temp = arr[i];
+        arr[i] = arr[newPos];
+        arr[newPos] = temp;
+    }
+    return arr;
+}
 
 function distDeck1() {
     let pOneDeck = []
@@ -70,14 +82,6 @@ function distDeck2() {
     return pTwoDeck;
 }
 console.log(distDeck1(), distDeck2());
-
-
-// FUNCTION 01: WAR: warCon(): If index 0 of player 1 array === index 0 of player 2 array, execute:
-    // Option 01: Skip comparison of next numbers to be loaded into index 0 for comparison in both arrays and load numbers after that OR Option 02: compare index 1 numbers.
-    // Option 01 (ONLY): Store skipped cards in "holding" array (warArray perhaps?).
-    // FUNCTION 02 to decide winner AND "payout" of "holding" array to winner.
-        // Order of "payout" of numbers / cards: winner revealed card, loser revealed card, winner "holding" array acending order (index 0, then 1...)
-    // If tie, repeat FUNCTION 01.
 
 
 // FUNCTION 02: INDEX 0 COMPARE: compareCard(): Compare index 0 of player 1 and 2 arrays.
@@ -108,10 +112,50 @@ function compareCard() {
     } else if (pOneDeckNew[0] === null) {
         score.innerHTML = "Player 2 Win!"
     } else if (pTwoDeckNew[0] === null) {
-        score.innerHTML =  "Player 1 Win!"
+        score.innerHTML = "Player 1 Win!"
     }
 }
 console.log(compareCard());
+
+
+// FUNCTION 01: WAR: warCon(): If index 0 of player 1 array === index 0 of player 2 array, execute:
+    // Option 01: Skip comparison of next numbers to be loaded into index 0 for comparison in both arrays and load numbers after that OR Option 02: compare index 1 numbers.
+    // Option 01 (ONLY): Store skipped cards in "holding" array (warArray perhaps?).
+    // FUNCTION 02 to decide winner AND "payout" of "holding" array to winner.
+        // Order of "payout" of numbers / cards: winner revealed card, loser revealed card, winner "holding" array acending order (index 0, then 1...)
+    // If tie, repeat FUNCTION 01.
+
+    function warCon() {
+        if (pOneDeckNew[2] < pTwoDeckNew[2]) {
+            let wonCardsA = pTwoDeckNew.splice(0, 3)
+            let wonCardsB = pOneDeckNew.splice(0, 3)
+            pTwoDeckNew.push(wonCardsA[0, 1, 2], wonCardsB[0, 1, 2])
+            return pTwoDeckNew;
+        } else if (pOneDeckNew[2] > pTwoDeckNew[2]) {
+            let wonCardsB = pOneDeckNew.splice(0, 3)
+            let wonCardsA = pTwoDeckNew.splice(0, 3)
+            pOneDeckNew.push(wonCardsB[0, 1, 2], wonCardsA[0, 1, 2])
+            return pOneDeckNew;
+        } else if (pOneDeckNew[2] === pTwoDeckNew[2]) {
+            warCon2();
+        }
+    }
+    
+    function warCon2() {
+        if (pOneDeckNew[4] < pTwoDeckNew[4]) {
+            let wonCardsA = pTwoDeckNew.splice(0, 5)
+            let wonCardsB = pOneDeckNew.splice(0, 5)
+            pTwoDeckNew.push(wonCardsA[0, 1, 2, 4, 5], wonCardsB[0, 1, 2, 4, 5])
+            return pTwoDeckNew;
+        } else if (pOneDeckNew[4] > pTwoDeckNew[4]) {
+            let wonCardsB = pOneDeckNew.splice(0, 5)
+            let wonCardsA = pTwoDeckNew.splice(0, 5)
+            pOneDeckNew.push(wonCardsB[0, 1, 2, 4, 5], wonCardsA[0, 1, 2, 4, 5])
+            return pOneDeckNew;
+        } else if (pOneDeckNew[4] === pTwoDeckNew[4]) {
+            return "Work in Progress"
+        }
+    }
 
 
 // FUNCTION 03: RENDER TURN: newCards(): Display corresponding, index 0 cards on top of both player card piles.
@@ -122,32 +166,4 @@ console.log(compareCard());
 
 // Some References:
 // https://dev.to/ycmjason/how-to-create-range-in-javascript-539i
-
-
-// Basic Game Mechanics:
-
-
-// Other Things to Consider:
-// Some functions you might choose to use:
-
-
-// Initialization function:
-// Where you set your initial state, setting up
-// what the board will look like upon loading
-// On-Click function:
-
-
-// Set up what happens when one of the elements
-// is clicked
-
-
-// Check winner function:
-// Checks the current state of the board for
-// a winner and changes the state of the winner
-// variable if so
-
-
-// Render function:
-// Displays the current state of the board
-// on the page, updating the elements to reflect
-// either X or O depending on whose turn it is
+// https://www.youtube.com/watch?v=myL4xmtAVtw
