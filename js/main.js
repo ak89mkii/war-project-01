@@ -1,12 +1,11 @@
 /*------Constants------*/
+
 startArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 
 // function init() {
     deckImages = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
 // }
 const startDeck = randomizeDeck(startArray);
-
-console.log(startDeck);
 
 const makeHalfDeck = startDeck.splice(0, 52)
 
@@ -15,7 +14,7 @@ const makeHalfDeck = startDeck.splice(0, 52)
 // Variables might include (board/turn/winner)
 
 
-// let pOneDeck, ptwoDeck = []
+let pOneDeck, ptwoDeck = []
 
 
 /*------Cached Element References------*/
@@ -34,10 +33,7 @@ const score = document.getElementById("message");
 
 
 // ADDEVENTLISTENER: NEW CARD BUTTON: Initiates FUNCTION 2.
-nextCard.addEventListener('click', function() {
-    let card = "34"
-    console.log(card)
-})
+nextCard.addEventListener('click', drawCard)
 
 // ADDEVENTLISTENER: START / RESET BUTTON: Initiates FUNCTION 00.5.
 startSet.addEventListener('click', function() {
@@ -95,7 +91,7 @@ console.log(distDeck1(), distDeck2());
 
 let pOneDeckNew = distDeck1();
 let pTwoDeckNew = distDeck2();
-
+function drawCard(pOneDeckNew, pTwoDeckNew) {
 function compareCard() {
     if (pOneDeckNew[0] < pTwoDeckNew[0]) {
         let wonCardsA = pTwoDeckNew.splice(0, 1)
@@ -115,7 +111,8 @@ function compareCard() {
         score.innerHTML = "Player 1 Win!"
     }
 }
-console.log(compareCard());
+}
+console.log(drawCard());
 
 
 // FUNCTION 01: WAR: warCon(): If index 0 of player 1 array === index 0 of player 2 array, execute:
@@ -153,7 +150,7 @@ console.log(compareCard());
             pOneDeckNew.push(wonCardsB[0, 1, 2, 4, 5], wonCardsA[0, 1, 2, 4, 5])
             return pOneDeckNew;
         } else if (pOneDeckNew[4] === pTwoDeckNew[4]) {
-            return "Work in Progress"
+            score.innerHTML = "What are the odds...4739. Congratulations!"
         }
     }
 
