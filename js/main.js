@@ -1,13 +1,16 @@
 /*------Constants------*/
-
+function init() {
 startArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-
+}
 // function init() {
-    deckImages = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
+//     deckImages = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
 // }
+init()
+
+
 const startDeck = randomizeDeck(startArray);
 
-const makeHalfDeck = startDeck.splice(0, 52)
+const makeHalfDeck = startDeck.splice(0, 52);
 
 
 /*------Variables (state)------*/
@@ -27,13 +30,14 @@ const p1Deck = document.getElementById("pOneDeck");
 const p2Deck = document.getElementById("ptwoDeck");
 const score = document.getElementById("message");
 
+
 /*------Event Listeners------*/
 // This is where you should put the event listener
 // for a mouse-click
 
 
 // ADDEVENTLISTENER: NEW CARD BUTTON: Initiates FUNCTION 2.
-nextCard.addEventListener('click', drawCard)
+nextCard.addEventListener('click', compareCard)
 
 // ADDEVENTLISTENER: START / RESET BUTTON: Initiates FUNCTION 00.5.
 startSet.addEventListener('click', function() {
@@ -77,7 +81,6 @@ function distDeck2() {
     }
     return pTwoDeck;
 }
-console.log(distDeck1(), distDeck2());
 
 
 // FUNCTION 02: INDEX 0 COMPARE: compareCard(): Compare index 0 of player 1 and 2 arrays.
@@ -91,7 +94,10 @@ console.log(distDeck1(), distDeck2());
 
 let pOneDeckNew = distDeck1();
 let pTwoDeckNew = distDeck2();
-function drawCard(pOneDeckNew, pTwoDeckNew) {
+
+console.log(pOneDeckNew, pTwoDeckNew);
+
+
 function compareCard() {
     if (pOneDeckNew[0] < pTwoDeckNew[0]) {
         let wonCardsA = pTwoDeckNew.splice(0, 1)
@@ -111,8 +117,8 @@ function compareCard() {
         score.innerHTML = "Player 1 Win!"
     }
 }
-}
-console.log(drawCard());
+
+console.log(compareCard());
 
 
 // FUNCTION 01: WAR: warCon(): If index 0 of player 1 array === index 0 of player 2 array, execute:
