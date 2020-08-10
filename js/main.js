@@ -37,7 +37,10 @@ const score = document.getElementById("message");
 
 
 // ADDEVENTLISTENER: NEW CARD BUTTON: Initiates FUNCTION 2.
-nextCard.addEventListener('click', compareCard)
+nextCard.addEventListener('click', function() {
+    compareCard(splicedCardA, splicedCardB)
+})
+
 
 // ADDEVENTLISTENER: START / RESET BUTTON: Initiates FUNCTION 00.5.
 startSet.addEventListener('click', function() {
@@ -97,24 +100,26 @@ let pTwoDeckNew = distDeck2();
 
 console.log(pOneDeckNew, pTwoDeckNew);
 
+let splicedCardA = pOneDeckNew.splice(0, 1)
+console.log(splicedCardA)
+let splicedCardB = pTwoDeckNew.splice(0, 1)
+console.log(splicedCardB)
 
-function compareCard() {
-    if (pOneDeckNew[0] < pTwoDeckNew[0]) {
-        let wonCardsA = pTwoDeckNew.splice(0, 1)
-        let wonCardsB = pOneDeckNew.splice(0, 1)
-        pTwoDeckNew.push(wonCardsA[0], wonCardsB[0])
-        return pTwoDeckNew;
-    } else if (pOneDeckNew[0] > pTwoDeckNew[0]) {
-        let wonCardsB = pOneDeckNew.splice(0, 1)
-        let wonCardsA = pTwoDeckNew.splice(0, 1)
-        pOneDeckNew.push(wonCardsB[0], wonCardsA[0])
-        return pOneDeckNew;
-    } else if (pOneDeckNew[0] === pTwoDeckNew[0]) {
-        warCon();
-    } else if (pOneDeckNew[0] === null) {
-        score.innerHTML = "Player 2 Win!"
-    } else if (pTwoDeckNew[0] === null) {
-        score.innerHTML = "Player 1 Win!"
+function compareCard(one, two) {
+    if (one < two) {
+        console.log(one, two);
+        
+    // } else if (one > two) {
+    //     let wonCardsB = pOneDeckNew.splice(0, 1)
+    //     let wonCardsA = pTwoDeckNew.splice(0, 1)
+    //     pOneDeckNew.push(wonCardsB[0], wonCardsA[0])
+    //     return one;
+    // } else if (one === two) {
+    //     warCon();
+    // } else if (one === null) {
+    //     score.innerHTML = "Player 2 Win!"
+    // } else if (two === null) {
+    //     score.innerHTML = "Player 1 Win!"
     }
 }
 
