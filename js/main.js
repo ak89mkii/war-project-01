@@ -38,9 +38,8 @@ const score = document.getElementById("message");
 
 // ADDEVENTLISTENER: NEW CARD BUTTON: Initiates FUNCTION 2.
 nextCard.addEventListener('click', function() {
-    compareCard(splicedCardA, splicedCardB)
+    compareCard(splicedCardA, splicedCardB);
 })
-
 
 // ADDEVENTLISTENER: START / RESET BUTTON: Initiates FUNCTION 00.5.
 startSet.addEventListener('click', function() {
