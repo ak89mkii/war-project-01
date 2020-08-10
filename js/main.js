@@ -38,7 +38,7 @@ const score = document.getElementById("message");
 
 // ADDEVENTLISTENER: NEW CARD BUTTON: Initiates FUNCTION 2.
 nextCard.addEventListener('click', function() {
-    compareCard(splicedCardA, splicedCardB);
+    compareCard(pOneDeckNew[0], pTwoDeckNew[0]);
 })
 
 // ADDEVENTLISTENER: START / RESET BUTTON: Initiates FUNCTION 00.5.
@@ -99,30 +99,30 @@ let pTwoDeckNew = distDeck2();
 
 console.log(pOneDeckNew, pTwoDeckNew);
 
-let splicedCardA = pOneDeckNew.splice(0, 1)
-console.log(splicedCardA)
-let splicedCardB = pTwoDeckNew.splice(0, 1)
-console.log(splicedCardB)
+function compareCard() {
+    let splicedCardA = pOneDeckNew.splice(0, 1)
+    let splicedCardB = pTwoDeckNew.splice(0, 1)
 
-function compareCard(one, two) {
-    if (one < two) {
-        console.log(one, two);
+    console.log(splicedCardA, splicedCardB);
+    
+    if (splicedCardA[0] < splicedCardB[0]) {
+        pTwoDeckNew.push(splicedCardA[0], splicedCardB[0]);
         
-    // } else if (one > two) {
-    //     let wonCardsB = pOneDeckNew.splice(0, 1)
-    //     let wonCardsA = pTwoDeckNew.splice(0, 1)
-    //     pOneDeckNew.push(wonCardsB[0], wonCardsA[0])
-    //     return one;
-    // } else if (one === two) {
-    //     warCon();
-    // } else if (one === null) {
-    //     score.innerHTML = "Player 2 Win!"
-    // } else if (two === null) {
-    //     score.innerHTML = "Player 1 Win!"
+        console.log("Two Won", pTwoDeckNew)
+
+    } else if (splicedCardA[0] > splicedCardB[0]) {
+        pOneDeckNew.push(splicedCardA[0], splicedCardB[0]);
+       
+        console.log("One Won", pOneDeckNew)
+
+    } else if (pOneDeckNew[0] === pTwoDeckNew[0]) {
+        warCon();
+    } else if (pOneDeckNew === null) {
+        score.innerHTML = "Player 2 Win!"
+    } else if (pTwoDeckNew === null) {
+        score.innerHTML = "Player 1 Win!"
     }
 }
-
-console.log(compareCard());
 
 
 // FUNCTION 01: WAR: warCon(): If index 0 of player 1 array === index 0 of player 2 array, execute:
@@ -137,7 +137,7 @@ console.log(compareCard());
             let wonCardsA = pTwoDeckNew.splice(0, 3)
             let wonCardsB = pOneDeckNew.splice(0, 3)
             pTwoDeckNew.push(wonCardsA[0, 1, 2], wonCardsB[0, 1, 2])
-            return pTwoDeckNew;
+            console.log(pTwoDeckNew);
         } else if (pOneDeckNew[2] > pTwoDeckNew[2]) {
             let wonCardsB = pOneDeckNew.splice(0, 3)
             let wonCardsA = pTwoDeckNew.splice(0, 3)
