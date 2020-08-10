@@ -106,7 +106,7 @@ function compareCard() {
     console.log(splicedCardA, splicedCardB);
     
     if (splicedCardA[0] < splicedCardB[0]) {
-        pTwoDeckNew.push(splicedCardA[0], splicedCardB[0]);
+        pTwoDeckNew.push(splicedCardB[0], splicedCardA[0]);
         
         console.log("Two Won", pTwoDeckNew)
 
@@ -115,11 +115,16 @@ function compareCard() {
        
         console.log("One Won", pOneDeckNew)
 
-    } else if (pOneDeckNew[0] === pTwoDeckNew[0]) {
+    } else if (splicedCardA[0] === splicedCardB[0]) {
+        pOneDeckNew.unshift(splicedCardA)
+        pTwoDeckNew.unshift(splicedCardB)
         warCon();
-    } else if (pOneDeckNew === null) {
+
+        console.log("Tie")
+
+    } else if (splicedCardA === null) {
         score.innerHTML = "Player 2 Win!"
-    } else if (pTwoDeckNew === null) {
+    } else if (splicedCardB === null) {
         score.innerHTML = "Player 1 Win!"
     }
 }
@@ -133,16 +138,14 @@ function compareCard() {
     // If tie, repeat FUNCTION 01.
 
     function warCon() {
-        if (pOneDeckNew[2] < pTwoDeckNew[2]) {
-            let wonCardsA = pTwoDeckNew.splice(0, 3)
-            let wonCardsB = pOneDeckNew.splice(0, 3)
-            pTwoDeckNew.push(wonCardsA[0, 1, 2], wonCardsB[0, 1, 2])
+        let splicedCardA = pOneDeckNew.splice(0, 3)
+        let splicedCardB = pTwoDeckNew.splice(0, 3)
+        if (splicedCardA[2] < splicedCardB[2]) {
+            pTwoDeckNew.push(splicedCardB[0, 1], splicedCardA[0, 1])
             console.log(pTwoDeckNew);
-        } else if (pOneDeckNew[2] > pTwoDeckNew[2]) {
-            let wonCardsB = pOneDeckNew.splice(0, 3)
-            let wonCardsA = pTwoDeckNew.splice(0, 3)
-            pOneDeckNew.push(wonCardsB[0, 1, 2], wonCardsA[0, 1, 2])
-            return pOneDeckNew;
+        } else if (splicedCardA[2] > splicedCardB[2]) {
+            pTwoDeckNew.push(splicedCardA[0, 1], splicedCardB[0, 1])
+            console.log(pTwoDeckNew);
         } else if (pOneDeckNew[2] === pTwoDeckNew[2]) {
             warCon2();
         }
