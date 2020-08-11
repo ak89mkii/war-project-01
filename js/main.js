@@ -43,7 +43,7 @@ nextCard.addEventListener('click', function() {
 
 // ADDEVENTLISTENER: START / RESET BUTTON: Initiates FUNCTION 00.5.
 startSet.addEventListener('click', function() {
-    init();
+    location.reload();
 })
     
 
