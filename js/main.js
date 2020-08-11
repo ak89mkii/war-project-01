@@ -3,13 +3,13 @@
 
 init();
 
-function init() {
-    startArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-}
-
 // function init() {
-//     deckImages = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
+//     startArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 // }
+
+function init() {
+    startArray = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
+}
 
 
 const startDeck = randomizeDeck(startArray);
@@ -181,12 +181,23 @@ function compareCard() {
 function render(a, b) {
     if (a !== undefined) {  
         p1Deck.classList.remove("back-blue");
-        p1Deck.classList.add("joker");
+        p1Deck.classList.add(a);
     }
     if (b !== undefined) {  
         p2Deck.classList.remove("back-blue");
-        p2Deck.classList.add("joker");
+        p2Deck.classList.add(b);
     }
+
+    // else {
+    //     p1Deck.classList.remove(a);
+    //     p1Deck.classList.add(a);
+    //     p2Deck.classList.remove(b);
+    //     p2Deck.classList.add(b);
+    // }
+    // if (a || b === 14) {  
+    //     p1Deck.classList.add("joker");
+    //     p2Deck.classList.add("joker");
+    // }
 }
 
 
