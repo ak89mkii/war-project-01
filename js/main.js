@@ -38,7 +38,7 @@ const score = document.getElementById("message");
 
 // ADDEVENTLISTENER: NEW CARD BUTTON: Initiates FUNCTION 2.
 nextCard.addEventListener('click', function() {
-    compareCard(pOneDeckNew[0], pTwoDeckNew[0]);
+    compareCard();
 })
 
 // ADDEVENTLISTENER: START / RESET BUTTON: Initiates FUNCTION 00.5.
@@ -108,24 +108,29 @@ function compareCard() {
     if (splicedCardA[0] < splicedCardB[0]) {
         pTwoDeckNew.push(splicedCardB[0], splicedCardA[0]);
         
-        console.log("Two Won", pTwoDeckNew)
+        console.log("Two Won", pTwoDeckNew, "One Lost", pOneDeckNew)
 
     } else if (splicedCardA[0] > splicedCardB[0]) {
         pOneDeckNew.push(splicedCardA[0], splicedCardB[0]);
        
-        console.log("One Won", pOneDeckNew)
+        console.log("One Won", pOneDeckNew, "Two Lost", pTwoDeckNew)
 
     } else if (splicedCardA[0] === splicedCardB[0]) {
-        pOneDeckNew.unshift(splicedCardA)
-        pTwoDeckNew.unshift(splicedCardB)
-        warCon();
-
-        console.log("Tie")
-
-    } else if (splicedCardA === null) {
-        score.innerHTML = "Player 2 Win!"
-    } else if (splicedCardB === null) {
-        score.innerHTML = "Player 1 Win!"
+        pOneDeckNew.unshift(splicedCardA[0])
+        pTwoDeckNew.unshift(splicedCardB[0])
+        console.log("War were declared", pOneDeckNew, pTwoDeckNew)
+        pOneDeckNew.splice(0, 2)
+        pTwoDeckNew.splice(0, 2)
+        // if (pOneDeckNew[2] < pTwoDeckNew[2]) {
+        //     pTwoDeckNew.push(splicedCardB[0, 1, 2], splicedCardA[0, 1, 2])
+        // } if (pOneDeckNew[2] > pTwoDeckNew[2]) {
+        //     pOneDeckNew.push(splicedCardA[0, 1, 2], splicedCardB[0, 1, 2])  
+        // }         
+        console.log("Tie: What are the odds...300 to 1.")
+    } else if (splicedCardA[0] === undefined) {
+        score.innerHTML = "Player 2 Wins!"
+    } else if (splicedCardB[0] === undefined) {
+        score.innerHTML = "Player 1 Wins!"
     }
 }
 
@@ -137,35 +142,35 @@ function compareCard() {
         // Order of "payout" of numbers / cards: winner revealed card, loser revealed card, winner "holding" array acending order (index 0, then 1...)
     // If tie, repeat FUNCTION 01.
 
-    function warCon() {
-        let splicedCardA = pOneDeckNew.splice(0, 3)
-        let splicedCardB = pTwoDeckNew.splice(0, 3)
-        if (splicedCardA[2] < splicedCardB[2]) {
-            pTwoDeckNew.push(splicedCardB[0, 1], splicedCardA[0, 1])
-            console.log(pTwoDeckNew);
-        } else if (splicedCardA[2] > splicedCardB[2]) {
-            pTwoDeckNew.push(splicedCardA[0, 1], splicedCardB[0, 1])
-            console.log(pTwoDeckNew);
-        } else if (pOneDeckNew[2] === pTwoDeckNew[2]) {
-            warCon2();
-        }
-    }
+    // function warCon() {
+    //     let splicedCardA = pOneDeckNew.splice(0, 3)
+    //     let splicedCardB = pTwoDeckNew.splice(0, 3)
+    //     if (splicedCardA[2] < splicedCardB[2]) {
+    //         pTwoDeckNew.push(splicedCardB[0, 1], splicedCardA[0, 1])
+    //         console.log(pTwoDeckNew);
+    //     } else if (splicedCardA[2] > splicedCardB[2]) {
+    //         pTwoDeckNew.push(splicedCardA[0, 1], splicedCardB[0, 1])
+    //         console.log(pTwoDeckNew);
+    //     } else if (pOneDeckNew[2] === pTwoDeckNew[2]) {
+    //         warCon2();
+    //     }
+    // }
     
-    function warCon2() {
-        if (pOneDeckNew[4] < pTwoDeckNew[4]) {
-            let wonCardsA = pTwoDeckNew.splice(0, 5)
-            let wonCardsB = pOneDeckNew.splice(0, 5)
-            pTwoDeckNew.push(wonCardsA[0, 1, 2, 4, 5], wonCardsB[0, 1, 2, 4, 5])
-            return pTwoDeckNew;
-        } else if (pOneDeckNew[4] > pTwoDeckNew[4]) {
-            let wonCardsB = pOneDeckNew.splice(0, 5)
-            let wonCardsA = pTwoDeckNew.splice(0, 5)
-            pOneDeckNew.push(wonCardsB[0, 1, 2, 4, 5], wonCardsA[0, 1, 2, 4, 5])
-            return pOneDeckNew;
-        } else if (pOneDeckNew[4] === pTwoDeckNew[4]) {
-            score.innerHTML = "What are the odds...4739. Congratulations!"
-        }
-    }
+    // function warCon2() {
+    //     if (pOneDeckNew[4] < pTwoDeckNew[4]) {
+    //         let wonCardsA = pTwoDeckNew.splice(0, 5)
+    //         let wonCardsB = pOneDeckNew.splice(0, 5)
+    //         pTwoDeckNew.push(wonCardsA[0, 1, 2, 4, 5], wonCardsB[0, 1, 2, 4, 5])
+    //         return pTwoDeckNew;
+    //     } else if (pOneDeckNew[4] > pTwoDeckNew[4]) {
+    //         let wonCardsB = pOneDeckNew.splice(0, 5)
+    //         let wonCardsA = pTwoDeckNew.splice(0, 5)
+    //         pOneDeckNew.push(wonCardsB[0, 1, 2, 4, 5], wonCardsA[0, 1, 2, 4, 5])
+    //         return pOneDeckNew;
+    //     } else if (pOneDeckNew[4] === pTwoDeckNew[4]) {
+    //         score.innerHTML = "What are the odds...4739. Congratulations!"
+    //     }
+    // }
 
 
 // FUNCTION 03: RENDER TURN: newCards(): Display corresponding, index 0 cards on top of both player card piles.
