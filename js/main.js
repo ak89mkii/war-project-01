@@ -29,7 +29,7 @@ let pOneDeck, ptwoDeck = []
 const nextCard = document.getElementById("newCard");
 const startSet = document.getElementById("reStart");
 const p1Deck = document.getElementById("pOneDeck");
-const p2Deck = document.getElementById("ptwoDeck");
+const p2Deck = document.getElementById("pTwoDeck");
 const score = document.getElementById("message");
 
 
@@ -109,12 +109,14 @@ function compareCard() {
         
         console.log("Two Won", pTwoDeckNew, "One Lost", pOneDeckNew)
         render(splicedCardA[0], splicedCardB[0])
+       
 
     } else if (splicedCardA[0] > splicedCardB[0]) {
         pOneDeckNew.push(splicedCardA[0], splicedCardB[0]);
        
         console.log("One Won", pOneDeckNew, "Two Lost", pTwoDeckNew)
         render(splicedCardA[0], splicedCardB[0])
+        
 
     } else if (splicedCardA[0] === splicedCardB[0]) {
         pOneDeckNew.unshift(splicedCardA[0])
@@ -177,9 +179,13 @@ function compareCard() {
 // FUNCTION 03: RENDER TURN: newCards(): Display corresponding, index 0 cards on top of both player card piles.
     
 function render(a, b) {
-    if (a && b !== undefined) {  
+    if (a !== undefined) {  
         p1Deck.classList.remove("back-blue");
+        p1Deck.classList.add("joker");
+    }
+    if (b !== undefined) {  
         p2Deck.classList.remove("back-blue");
+        p2Deck.classList.add("joker");
     }
 }
 
