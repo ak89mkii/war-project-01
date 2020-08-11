@@ -1,11 +1,15 @@
 /*------Constants------*/
+
+
+init();
+
 function init() {
-startArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    startArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 }
+
 // function init() {
 //     deckImages = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
 // }
-init()
 
 
 const startDeck = randomizeDeck(startArray);
@@ -14,14 +18,12 @@ const makeHalfDeck = startDeck.splice(0, 52);
 
 
 /*------Variables (state)------*/
-// Variables might include (board/turn/winner)
 
 
 let pOneDeck, ptwoDeck = []
 
 
 /*------Cached Element References------*/
-// You might choose to put your game status here.
 
 
 const nextCard = document.getElementById("newCard");
@@ -32,8 +34,6 @@ const score = document.getElementById("message");
 
 
 /*------Event Listeners------*/
-// This is where you should put the event listener
-// for a mouse-click
 
 
 // ADDEVENTLISTENER: NEW CARD BUTTON: Initiates FUNCTION 2.
@@ -43,8 +43,7 @@ nextCard.addEventListener('click', function() {
 
 // ADDEVENTLISTENER: START / RESET BUTTON: Initiates FUNCTION 00.5.
 startSet.addEventListener('click', function() {
-    let start = "117"
-    console.log(start)
+    init();
 })
     
 
@@ -109,18 +108,20 @@ function compareCard() {
         pTwoDeckNew.push(splicedCardB[0], splicedCardA[0]);
         
         console.log("Two Won", pTwoDeckNew, "One Lost", pOneDeckNew)
+        render(splicedCardA[0], splicedCardB[0])
 
     } else if (splicedCardA[0] > splicedCardB[0]) {
         pOneDeckNew.push(splicedCardA[0], splicedCardB[0]);
        
         console.log("One Won", pOneDeckNew, "Two Lost", pTwoDeckNew)
+        render(splicedCardA[0], splicedCardB[0])
 
     } else if (splicedCardA[0] === splicedCardB[0]) {
         pOneDeckNew.unshift(splicedCardA[0])
         pTwoDeckNew.unshift(splicedCardB[0])
-        console.log("War were declared", pOneDeckNew, pTwoDeckNew)
         pOneDeckNew.splice(0, 2)
         pTwoDeckNew.splice(0, 2)
+        console.log("War were declared", pOneDeckNew, pTwoDeckNew)
         // if (pOneDeckNew[2] < pTwoDeckNew[2]) {
         //     pTwoDeckNew.push(splicedCardB[0, 1, 2], splicedCardA[0, 1, 2])
         // } if (pOneDeckNew[2] > pTwoDeckNew[2]) {
@@ -174,11 +175,18 @@ function compareCard() {
 
 
 // FUNCTION 03: RENDER TURN: newCards(): Display corresponding, index 0 cards on top of both player card piles.
-    // WIN PLAYER 1: Display text and/or animation indicating win.
-    // WIN PLAYER 2: Display text and/or animation indicating win.
-    // TIE: RENDER WAR: Displays face down card (timing about 1 second), then show new index 0 cards (FUNCTION 01 will skip the facedown card array equivalent).
+    
+function render(a, b) {
+    if (a && b !== undefined) {  
+        p1Deck.classList.remove("back-blue");
+        p2Deck.classList.remove("back-blue");
+    }
+}
 
 
 // Some References:
 // https://dev.to/ycmjason/how-to-create-range-in-javascript-539i
 // https://www.youtube.com/watch?v=myL4xmtAVtw
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values
+// https://animate.style/
+
