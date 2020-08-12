@@ -112,6 +112,7 @@ function compareCard() {
     render(cardPickedA, cardPickedB);
     
     if (splicedCardA[0] < splicedCardB[0]) {
+        score.value = "=>"
         for (let i = 0; i < splicedCardB.length; i++)
         pTwoDeckNew.push(splicedCardB[i], splicedCardA[i]);
         
@@ -119,6 +120,7 @@ function compareCard() {
        
 
     } else if (splicedCardA[0] > splicedCardB[0]) {
+        score.value = "<="
         for (let i = 0; i < splicedCardA.length; i++)
         pOneDeckNew.push(splicedCardA[i], splicedCardB[i]);
        
@@ -126,7 +128,6 @@ function compareCard() {
         
 
     } else if (splicedCardA[0] === splicedCardB[0]) {
-        score.value = "War Were Declared!"
         pOneDeckNew.unshift(splicedCardA[0])
         pTwoDeckNew.unshift(splicedCardB[0])
         
@@ -149,6 +150,7 @@ function compareCard() {
 
 function warCon(pOneDeckNew, pTwoDeckNew) {
     if (pOneDeckNew[2] < pTwoDeckNew[2]) {
+        score.value = "War Were Declared! =>"
         let goku = pOneDeckNew.splice(0, 3)
         let gohan = pTwoDeckNew.splice(0, 3)
         for (let i = 0; i < gohan.length; i++)
@@ -157,6 +159,7 @@ function warCon(pOneDeckNew, pTwoDeckNew) {
         p2War.classList.add(deckArray[gohan[2] -= 2]);
         return pTwoDeckNew
     } if (pOneDeckNew[2] > pTwoDeckNew[2]) { 
+        score.value = "<= War Were Declared!"
         let goku = pOneDeckNew.splice(0, 3)
         let gohan = pTwoDeckNew.splice(0, 3)  
         for (let i = 0; i < gohan.length; i++)
@@ -164,7 +167,39 @@ function warCon(pOneDeckNew, pTwoDeckNew) {
         p1War.classList.add(deckArray[goku[2] -= 2]);
         p2War.classList.add(deckArray[gohan[2] -= 2]);
         return pOneDeckNew
-    }
+    } if (pOneDeckNew[2] === pTwoDeckNew[2])
+        warCon2(pOneDeckNew, pTwoDeckNew);
+
+console.log("WAR!", pOneDeckNew, pTwoDeckNew)
+}
+
+function warCon2(pOneDeckNew, pTwoDeckNew) {
+    score.value = "Double War! 1 in 300"
+    if (pOneDeckNew[4] < pTwoDeckNew[4]) {
+        let goku = pOneDeckNew.splice(0, 4)
+        let gohan = pTwoDeckNew.splice(0, 4)
+        for (let i = 0; i < gohan.length; i++)
+        pTwoDeckNew.push(gohan[i], goku[i]);
+        p1War.classList.add(deckArray[goku[4] -= 2]);
+        p2War.classList.add(deckArray[gohan[4] -= 2]);
+        return pTwoDeckNew
+    } if (pOneDeckNew[4] > pTwoDeckNew[4]) { 
+        let goku = pOneDeckNew.splice(0, 4)
+        let gohan = pTwoDeckNew.splice(0, 4)  
+        for (let i = 0; i < gohan.length; i++)
+        pOneDeckNew.push(goku[i], gohan[i]);
+        p1War.classList.add(deckArray[goku[4] -= 2]);
+        p2War.classList.add(deckArray[gohan[4] -= 2]);
+        return pOneDeckNew
+    } if (pOneDeckNew[4] === pTwoDeckNew[4])
+        warCon3(pOneDeckNew, pTwoDeckNew);
+
+console.log("WAR 2!", pOneDeckNew, pTwoDeckNew)
+}
+
+function warCon3(pOneDeckNew, pTwoDeckNew) {
+    score.value = "1 in 4,739. Congratulations, you broke my game!"
+
 console.log("WAR!", pOneDeckNew, pTwoDeckNew)
 }
 
