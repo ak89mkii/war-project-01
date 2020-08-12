@@ -126,17 +126,16 @@ function compareCard() {
         
 
     } else if (splicedCardA[0] === splicedCardB[0]) {
+        score.value = "War Were Declared!"
         pOneDeckNew.unshift(splicedCardA[0])
         pTwoDeckNew.unshift(splicedCardB[0])
-        // console.log("After unshift", pOneDeckNew, pTwoDeckNew)
+        
         warCon(pOneDeckNew, pTwoDeckNew);
         
-        // console.log("War were declared", pOneDeckNew, pTwoDeckNew)
-        
     } else if (splicedCardA[0] === undefined) {
-        score.innerHTML = "Player 2 Wins!"
+        score.value = "Player 2 Wins!"
     } else if (splicedCardB[0] === undefined) {
-        score.innerHTML = "Player 1 Wins!"
+        score.value = "Player 1 Wins!"
     }
 }
 
@@ -162,6 +161,8 @@ function warCon(pOneDeckNew, pTwoDeckNew) {
         let gohan = pTwoDeckNew.splice(0, 3)  
         for (let i = 0; i < gohan.length; i++)
         pOneDeckNew.push(goku[i], gohan[i]);
+        p1War.classList.add(deckArray[goku[2] -= 2]);
+        p2War.classList.add(deckArray[gohan[2] -= 2]);
         return pOneDeckNew
     }
 console.log("WAR!", pOneDeckNew, pTwoDeckNew)
@@ -174,10 +175,12 @@ function render(a, b) {
     if (a !== undefined) {  
         p1Deck.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
         p1War.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
+        score.value = ""
     }
     if (b !== undefined) {  
         p2Deck.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
         p2War.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
+        score.value = ""
     }
     if (a === 14) {  
         p1Deck.classList.add(deckArray[12]);
@@ -269,4 +272,5 @@ aArray = ["dA", "dA", "dA", "dA"]
 // https://www.youtube.com/watch?v=myL4xmtAVtw
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values
 // https://animate.style/
+// https://stackoverflow.com/questions/39690321/how-to-select-all-items-in-array-at-once-and-add-class-to-them
 

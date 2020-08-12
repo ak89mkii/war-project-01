@@ -355,15 +355,6 @@ body {
   text-align: center;
 }
 
-.scoreboard {
-  text-align: center;
-  margin: 0 auto;
-  height: 150px;
-  width: 300px;
-  background-color: grey;
-  border-radius: 40px;
-}
-
 .decks {
   margin: 20px;
 }
@@ -373,8 +364,16 @@ body {
 }
 
 #message {
+  background-color: grey;
   font-size: 30px;
   color: white;
-  padding: 50px;
   text-align: center;
+  margin: 0 auto;
+  height: 150px;
+  width: 300px;
+  background-color: grey;
+  border-radius: 40px;
+  border-style: solid;
+  border-color: black;
+  border-width: 10px;
 }
