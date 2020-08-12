@@ -397,6 +397,26 @@ body {
   
 }
 
+.ship-r0 {
+  height: 100px;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: orange;
+  border-width: 10px;
+  position: absolute;
+  right: 200px;
+}
+
+.ship-l0 {
+  height: 100px;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: orange;
+  border-width: 10px;
+  position: absolute;
+  left: 210px;
+}
+
 .ship-r {
   height: 100px;
   border-radius: 20px;
@@ -414,5 +434,5 @@ body {
   border-color: orange;
   border-width: 10px;
   position: absolute;
-  left: 20px;
+  left: 25px;
 }

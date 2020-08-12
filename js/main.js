@@ -114,7 +114,7 @@ function compareCard() {
     
     if (splicedCardA[0] < splicedCardB[0]) {
         score.value = "=>"
-        tank.classList.add("ship-l");
+        tank.classList.add("ship-l0");
         for (let i = 0; i < splicedCardB.length; i++)
         pTwoDeckNew.push(splicedCardB[i], splicedCardA[i]);
         
@@ -123,7 +123,7 @@ function compareCard() {
 
     } else if (splicedCardA[0] > splicedCardB[0]) {
         score.value = "<="
-        tank.classList.add("ship-r");
+        tank.classList.add("ship-r0");
         for (let i = 0; i < splicedCardA.length; i++)
         pOneDeckNew.push(splicedCardA[i], splicedCardB[i]);
        
@@ -219,7 +219,7 @@ function render(a, b) {
         p1Deck.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
         p1War.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
         score.value = ""
-        tank.classList.remove("theShip","ship-r","ship-l");
+        tank.classList.remove("theShip","ship-r","ship-l","ship-r0","ship-l0");
     }
     if (b !== undefined) {  
         p2Deck.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
