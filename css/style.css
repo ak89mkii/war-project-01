@@ -364,8 +364,9 @@ body {
 }
 
 #message {
+  font-family: 'Press Start 2P', cursive;
   background-color: grey;
-  font-size: 30px;
+  font-size: 20px;
   color: white;
   text-align: center;
   margin: 0 auto;
@@ -376,4 +377,42 @@ body {
   border-style: solid;
   border-color: black;
   border-width: 10px;
+}
+
+#shipDiv {
+  margin: 0 auto;
+  width: 700px;
+  height:100px;
+  background-color: grey;
+  position: relative;
+}
+
+.theShip {
+  height: 100px;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: orange;
+  border-width: 10px;
+  position: center;
+  
+}
+
+.ship-r {
+  height: 100px;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: orange;
+  border-width: 10px;
+  position: absolute;
+  right: 20px;
+}
+
+.ship-l {
+  height: 100px;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: orange;
+  border-width: 10px;
+  position: absolute;
+  left: 20px;
 }

@@ -20,7 +20,7 @@ const makeHalfDeck = startDeck.splice(0, 52);
 /*------Variables (state)------*/
 
 
-let pOneDeck, ptwoDeck = []
+let pOneDeck, ptwoDeck
 
 
 /*------Cached Element References------*/
@@ -33,6 +33,7 @@ const p2Deck = document.getElementById("pTwoDeck");
 const p1War = document.getElementById("pOneWar");
 const p2War = document.getElementById("pTwoWar");
 const score = document.getElementById("message");
+const tank = document.getElementById("ship");
 
 
 /*------Event Listeners------*/
@@ -113,6 +114,7 @@ function compareCard() {
     
     if (splicedCardA[0] < splicedCardB[0]) {
         score.value = "=>"
+        tank.classList.add("ship-l");
         for (let i = 0; i < splicedCardB.length; i++)
         pTwoDeckNew.push(splicedCardB[i], splicedCardA[i]);
         
@@ -121,6 +123,7 @@ function compareCard() {
 
     } else if (splicedCardA[0] > splicedCardB[0]) {
         score.value = "<="
+        tank.classList.add("ship-r");
         for (let i = 0; i < splicedCardA.length; i++)
         pOneDeckNew.push(splicedCardA[i], splicedCardB[i]);
        
@@ -151,6 +154,7 @@ function compareCard() {
 function warCon(pOneDeckNew, pTwoDeckNew) {
     if (pOneDeckNew[2] < pTwoDeckNew[2]) {
         score.value = "War Were Declared! =>"
+        tank.classList.add("ship-l");
         let goku = pOneDeckNew.splice(0, 3)
         let gohan = pTwoDeckNew.splice(0, 3)
         for (let i = 0; i < gohan.length; i++)
@@ -160,6 +164,7 @@ function warCon(pOneDeckNew, pTwoDeckNew) {
         return pTwoDeckNew
     } if (pOneDeckNew[2] > pTwoDeckNew[2]) { 
         score.value = "<= War Were Declared!"
+        tank.classList.add("ship-r");
         let goku = pOneDeckNew.splice(0, 3)
         let gohan = pTwoDeckNew.splice(0, 3)  
         for (let i = 0; i < gohan.length; i++)
@@ -174,8 +179,9 @@ console.log("WAR!", pOneDeckNew, pTwoDeckNew)
 }
 
 function warCon2(pOneDeckNew, pTwoDeckNew) {
-    score.value = "Double War! 1 in 300"
     if (pOneDeckNew[4] < pTwoDeckNew[4]) {
+        score.value = "Double War! 1 in 300 =>"
+        tank.classList.add("ship-l");
         let goku = pOneDeckNew.splice(0, 4)
         let gohan = pTwoDeckNew.splice(0, 4)
         for (let i = 0; i < gohan.length; i++)
@@ -184,6 +190,8 @@ function warCon2(pOneDeckNew, pTwoDeckNew) {
         p2War.classList.add(deckArray[gohan[4] -= 2]);
         return pTwoDeckNew
     } if (pOneDeckNew[4] > pTwoDeckNew[4]) { 
+        score.value = "<= Double War! 1 in 300"
+        tank.classList.add("ship-r");
         let goku = pOneDeckNew.splice(0, 4)
         let gohan = pTwoDeckNew.splice(0, 4)  
         for (let i = 0; i < gohan.length; i++)
@@ -211,11 +219,13 @@ function render(a, b) {
         p1Deck.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
         p1War.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
         score.value = ""
+        tank.classList.remove("theShip","ship-r","ship-l");
     }
     if (b !== undefined) {  
         p2Deck.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
         p2War.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
         score.value = ""
+        tank.classList.remove("theShip", "theShip-r", "theShip-l");
     }
     if (a === 14) {  
         p1Deck.classList.add(deckArray[12]);
@@ -297,7 +307,6 @@ function render(a, b) {
     }
 }
 
-aArray = ["dA", "dA", "dA", "dA"]
 
 // deckArray = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
 
@@ -308,4 +317,5 @@ aArray = ["dA", "dA", "dA", "dA"]
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values
 // https://animate.style/
 // https://stackoverflow.com/questions/39690321/how-to-select-all-items-in-array-at-once-and-add-class-to-them
-
+// https://www.pixilart.com/art/space-invaders-ship-b32c69e04d7d64f
+// https://www.w3schools.com/css/css_positioning.asp
