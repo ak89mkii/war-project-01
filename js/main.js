@@ -110,13 +110,15 @@ function compareCard() {
     render(cardPickedA, cardPickedB);
     
     if (splicedCardA[0] < splicedCardB[0]) {
-        pTwoDeckNew.push(splicedCardB[0], splicedCardA[0]);
+        for (let i = 0; i < splicedCardB.length; i++)
+        pTwoDeckNew.push(splicedCardB[i], splicedCardA[i]);
         
         console.log("Two Won", pTwoDeckNew, "One Lost", pOneDeckNew)
        
 
     } else if (splicedCardA[0] > splicedCardB[0]) {
-        pOneDeckNew.push(splicedCardA[0], splicedCardB[0]);
+        for (let i = 0; i < splicedCardA.length; i++)
+        pOneDeckNew.push(splicedCardA[i], splicedCardB[i]);
        
         console.log("One Won", pOneDeckNew, "Two Lost", pTwoDeckNew)
         
@@ -124,20 +126,34 @@ function compareCard() {
     } else if (splicedCardA[0] === splicedCardB[0]) {
         pOneDeckNew.unshift(splicedCardA[0])
         pTwoDeckNew.unshift(splicedCardB[0])
-        pOneDeckNew.splice(0, 2)
-        pTwoDeckNew.splice(0, 2)
-        console.log("War were declared", pOneDeckNew, pTwoDeckNew)
-        // if (pOneDeckNew[2] < pTwoDeckNew[2]) {
-        //     pTwoDeckNew.push(splicedCardB[0, 1, 2], splicedCardA[0, 1, 2])
-        // } if (pOneDeckNew[2] > pTwoDeckNew[2]) {
-        //     pOneDeckNew.push(splicedCardA[0, 1, 2], splicedCardB[0, 1, 2])  
-        // }         
-        console.log("Tie: What are the odds...300 to 1.")
+        // console.log("After unshift", pOneDeckNew, pTwoDeckNew)
+        warCon(pOneDeckNew, pTwoDeckNew);
+        
+        // console.log("War were declared", pOneDeckNew, pTwoDeckNew)
+        
     } else if (splicedCardA[0] === undefined) {
         score.innerHTML = "Player 2 Wins!"
     } else if (splicedCardB[0] === undefined) {
         score.innerHTML = "Player 1 Wins!"
     }
+}
+
+function warCon(pOneDeckNew, pTwoDeckNew) {
+    
+if (pOneDeckNew[2] < pTwoDeckNew[2]) {
+    let goku = pOneDeckNew.splice(0, 3)
+    let gohan = pTwoDeckNew.splice(0, 3)
+    for (let i = 0; i < gohan.length; i++)
+    pTwoDeckNew.push(gohan[i], goku[i]);
+    return pTwoDeckNew
+} if (pOneDeckNew[2] > pTwoDeckNew[2]) { 
+    let goku = pOneDeckNew.splice(0, 3)
+    let gohan = pTwoDeckNew.splice(0, 3)  
+    for (let i = 0; i < gohan.length; i++)
+    pOneDeckNew.push(goku[i], gohan[i]);
+    return pOneDeckNew
+}
+console.log("WAR!", pOneDeckNew, pTwoDeckNew)
 }
 
 
@@ -269,6 +285,10 @@ function render(a, b) {
         p2Deck.classList.add(deckArray[0]);
     }
 }
+
+aArray = ["dA", "dA", "dA", "dA"]
+
+// deckArray = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
 
 
 // Some References:
