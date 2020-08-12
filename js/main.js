@@ -30,6 +30,8 @@ const nextCard = document.getElementById("newCard");
 const startSet = document.getElementById("reStart");
 const p1Deck = document.getElementById("pOneDeck");
 const p2Deck = document.getElementById("pTwoDeck");
+const p1War = document.getElementById("pOneWar");
+const p2War = document.getElementById("pTwoWar");
 const score = document.getElementById("message");
 
 
@@ -138,24 +140,6 @@ function compareCard() {
     }
 }
 
-function warCon(pOneDeckNew, pTwoDeckNew) {
-    
-if (pOneDeckNew[2] < pTwoDeckNew[2]) {
-    let goku = pOneDeckNew.splice(0, 3)
-    let gohan = pTwoDeckNew.splice(0, 3)
-    for (let i = 0; i < gohan.length; i++)
-    pTwoDeckNew.push(gohan[i], goku[i]);
-    return pTwoDeckNew
-} if (pOneDeckNew[2] > pTwoDeckNew[2]) { 
-    let goku = pOneDeckNew.splice(0, 3)
-    let gohan = pTwoDeckNew.splice(0, 3)  
-    for (let i = 0; i < gohan.length; i++)
-    pOneDeckNew.push(goku[i], gohan[i]);
-    return pOneDeckNew
-}
-console.log("WAR!", pOneDeckNew, pTwoDeckNew)
-}
-
 
 // FUNCTION 01: WAR: warCon(): If index 0 of player 1 array === index 0 of player 2 array, execute:
     // Option 01: Skip comparison of next numbers to be loaded into index 0 for comparison in both arrays and load numbers after that OR Option 02: compare index 1 numbers.
@@ -164,35 +148,24 @@ console.log("WAR!", pOneDeckNew, pTwoDeckNew)
         // Order of "payout" of numbers / cards: winner revealed card, loser revealed card, winner "holding" array acending order (index 0, then 1...)
     // If tie, repeat FUNCTION 01.
 
-    // function warCon() {
-    //     let splicedCardA = pOneDeckNew.splice(0, 3)
-    //     let splicedCardB = pTwoDeckNew.splice(0, 3)
-    //     if (splicedCardA[2] < splicedCardB[2]) {
-    //         pTwoDeckNew.push(splicedCardB[0, 1], splicedCardA[0, 1])
-    //         console.log(pTwoDeckNew);
-    //     } else if (splicedCardA[2] > splicedCardB[2]) {
-    //         pTwoDeckNew.push(splicedCardA[0, 1], splicedCardB[0, 1])
-    //         console.log(pTwoDeckNew);
-    //     } else if (pOneDeckNew[2] === pTwoDeckNew[2]) {
-    //         warCon2();
-    //     }
-    // }
-    
-    // function warCon2() {
-    //     if (pOneDeckNew[4] < pTwoDeckNew[4]) {
-    //         let wonCardsA = pTwoDeckNew.splice(0, 5)
-    //         let wonCardsB = pOneDeckNew.splice(0, 5)
-    //         pTwoDeckNew.push(wonCardsA[0, 1, 2, 4, 5], wonCardsB[0, 1, 2, 4, 5])
-    //         return pTwoDeckNew;
-    //     } else if (pOneDeckNew[4] > pTwoDeckNew[4]) {
-    //         let wonCardsB = pOneDeckNew.splice(0, 5)
-    //         let wonCardsA = pTwoDeckNew.splice(0, 5)
-    //         pOneDeckNew.push(wonCardsB[0, 1, 2, 4, 5], wonCardsA[0, 1, 2, 4, 5])
-    //         return pOneDeckNew;
-    //     } else if (pOneDeckNew[4] === pTwoDeckNew[4]) {
-    //         score.innerHTML = "What are the odds...4739. Congratulations!"
-    //     }
-    // }
+function warCon(pOneDeckNew, pTwoDeckNew) {
+    if (pOneDeckNew[2] < pTwoDeckNew[2]) {
+        let goku = pOneDeckNew.splice(0, 3)
+        let gohan = pTwoDeckNew.splice(0, 3)
+        for (let i = 0; i < gohan.length; i++)
+        pTwoDeckNew.push(gohan[i], goku[i]);
+        p1War.classList.add(deckArray[goku[2] -= 2]);
+        p2War.classList.add(deckArray[gohan[2] -= 2]);
+        return pTwoDeckNew
+    } if (pOneDeckNew[2] > pTwoDeckNew[2]) { 
+        let goku = pOneDeckNew.splice(0, 3)
+        let gohan = pTwoDeckNew.splice(0, 3)  
+        for (let i = 0; i < gohan.length; i++)
+        pOneDeckNew.push(goku[i], gohan[i]);
+        return pOneDeckNew
+    }
+console.log("WAR!", pOneDeckNew, pTwoDeckNew)
+}
 
 
 // FUNCTION 03: RENDER TURN: newCards(): Display corresponding, index 0 cards on top of both player card piles.
@@ -200,11 +173,11 @@ console.log("WAR!", pOneDeckNew, pTwoDeckNew)
 function render(a, b) {
     if (a !== undefined) {  
         p1Deck.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
-        // p1Deck.classList.add(deckArray[a]);
+        p1War.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
     }
     if (b !== undefined) {  
         p2Deck.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
-        // p2Deck.classList.add(deckArray[b]);
+        p2War.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
     }
     if (a === 14) {  
         p1Deck.classList.add(deckArray[12]);
