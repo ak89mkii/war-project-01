@@ -3,13 +3,13 @@
 
 init();
 
-// function init() {
-//     startArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-// }
-
 function init() {
-    startArray = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
+    startArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 }
+
+deckArray = ["s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA"]
+
+// deckArray = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
 
 
 const startDeck = randomizeDeck(startArray);
@@ -104,18 +104,21 @@ function compareCard() {
 
     console.log(splicedCardA, splicedCardB);
     
+    // For render:
+    let cardPickedA = splicedCardA[0]
+    let cardPickedB = splicedCardB[0]
+    render(cardPickedA, cardPickedB);
+    
     if (splicedCardA[0] < splicedCardB[0]) {
         pTwoDeckNew.push(splicedCardB[0], splicedCardA[0]);
         
         console.log("Two Won", pTwoDeckNew, "One Lost", pOneDeckNew)
-        render(splicedCardA[0], splicedCardB[0])
        
 
     } else if (splicedCardA[0] > splicedCardB[0]) {
         pOneDeckNew.push(splicedCardA[0], splicedCardB[0]);
        
         console.log("One Won", pOneDeckNew, "Two Lost", pTwoDeckNew)
-        render(splicedCardA[0], splicedCardB[0])
         
 
     } else if (splicedCardA[0] === splicedCardB[0]) {
@@ -180,24 +183,91 @@ function compareCard() {
     
 function render(a, b) {
     if (a !== undefined) {  
-        p1Deck.classList.remove("back-blue");
-        p1Deck.classList.add(a);
+        p1Deck.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
+        // p1Deck.classList.add(deckArray[a]);
     }
     if (b !== undefined) {  
-        p2Deck.classList.remove("back-blue");
-        p2Deck.classList.add(b);
+        p2Deck.classList.remove("back-blue", "s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA");
+        // p2Deck.classList.add(deckArray[b]);
     }
-
-    // else {
-    //     p1Deck.classList.remove(a);
-    //     p1Deck.classList.add(a);
-    //     p2Deck.classList.remove(b);
-    //     p2Deck.classList.add(b);
-    // }
-    // if (a || b === 14) {  
-    //     p1Deck.classList.add("joker");
-    //     p2Deck.classList.add("joker");
-    // }
+    if (a === 14) {  
+        p1Deck.classList.add(deckArray[12]);
+    }
+    if (b === 14) {  
+        p2Deck.classList.add(deckArray[12]);
+    }
+    if (a === 13) {  
+        p1Deck.classList.add(deckArray[11]);
+    }
+    if (b === 13) {  
+        p2Deck.classList.add(deckArray[11]);
+    }
+    if (a === 12) {  
+        p1Deck.classList.add(deckArray[10]);
+    }
+    if (b === 12) {  
+        p2Deck.classList.add(deckArray[10]);
+    }
+    if (a === 11) {  
+        p1Deck.classList.add(deckArray[9]);
+    }
+    if (b === 11) {  
+        p2Deck.classList.add(deckArray[9]);
+    }
+    if (a === 10) {  
+        p1Deck.classList.add(deckArray[8]);
+    }
+    if (b === 10) {  
+        p2Deck.classList.add(deckArray[8]);
+    }
+    if (a === 9) {  
+        p1Deck.classList.add(deckArray[7]);
+    }
+    if (b === 9) {  
+        p2Deck.classList.add(deckArray[7]);
+    }
+    if (a === 8) {  
+        p1Deck.classList.add(deckArray[6]);
+    }
+    if (b === 8) {  
+        p2Deck.classList.add(deckArray[6]);
+    }
+    if (a === 7) {  
+        p1Deck.classList.add(deckArray[5]);
+    }
+    if (b === 7) {  
+        p2Deck.classList.add(deckArray[5]);
+    }
+    if (a === 6) {  
+        p1Deck.classList.add(deckArray[4]);
+    }
+    if (b === 6) {  
+        p2Deck.classList.add(deckArray[4]);
+    }
+    if (a === 5) {  
+        p1Deck.classList.add(deckArray[3]);
+    }
+    if (b === 5) {  
+        p2Deck.classList.add(deckArray[3]);
+    }
+    if (a === 4) {  
+        p1Deck.classList.add(deckArray[2]);
+    }
+    if (b === 4) {  
+        p2Deck.classList.add(deckArray[2]);
+    }
+    if (a === 3) {  
+        p1Deck.classList.add("s03");
+    }
+    if (b === 3) {  
+        p2Deck.classList.add("s03");
+    }
+    if (a === 2) {  
+        p1Deck.classList.add("s02");
+    }
+    if (b === 2) {  
+        p2Deck.classList.add("s02");
+    }
 }
 
 
