@@ -257,16 +257,16 @@ function render(a, b) {
         p2Deck.classList.add(deckArray[2]);
     }
     if (a === 3) {  
-        p1Deck.classList.add("s03");
+        p1Deck.classList.add(deckArray[1]);
     }
     if (b === 3) {  
-        p2Deck.classList.add("s03");
+        p2Deck.classList.add(deckArray[1]);
     }
     if (a === 2) {  
-        p1Deck.classList.add("s02");
+        p1Deck.classList.add(deckArray[0]);
     }
     if (b === 2) {  
-        p2Deck.classList.add("s02");
+        p2Deck.classList.add(deckArray[0]);
     }
 }
 
