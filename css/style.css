@@ -385,6 +385,16 @@ body {
   background-color: #337AB7;
 }
 
+#newCard:hover {
+  color:white;
+  background-color: black;
+}
+
+#reStart:hover {
+  color:white;
+  background-color: black;
+}
+
 #reStart {
   margin: 50px;
   height: 50px;

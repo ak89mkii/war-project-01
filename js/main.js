@@ -38,7 +38,8 @@ const tank = document.getElementById("ship");
 // ADDEVENTLISTENER: NEW CARD BUTTON: Initiates FUNCTION 2.
 nextCard.addEventListener('click', function() {
     compareCard();
-    myPlay();
+    blaster();
+    loud();
 })
 
 // ADDEVENTLISTENER: START / RESET BUTTON: Initiates FUNCTION 00.5.
@@ -52,10 +53,17 @@ startSet.addEventListener('click', function() {
 
 // AUDIO FUNCTION:
 
-function myPlay() {
+function blaster() {
     let audio = new Audio(`sounds/laser.wav`);
     audio.play();
 }
+
+function loud() {
+    let audio2 = new Audio(`sounds/boom.mp3`);
+    setTimeout(()=>{audio2.play()},
+    200)
+}
+
 
 // FUNCTION 00: INIT: Game starts with cards faced down view and prompt players to start game (star / reset button).
 
@@ -332,3 +340,4 @@ function render(a, b) {
 // https://www.pixilart.com/art/space-invaders-ship-b32c69e04d7d64f
 // https://www.w3schools.com/css/css_positioning.asp
 // https://freesound.org/people/MikeE63/sounds/466834/
+// https://freesound.org/people/cydon/sounds/268557/
