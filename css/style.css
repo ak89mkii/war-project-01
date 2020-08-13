@@ -356,7 +356,7 @@ body {
   background-color: #eff1f5;
 }
 
-.text {
+.animate__flash {
   font-family: 'Press Start 2P', cursive;
   font-size: 50px;
 }
@@ -365,7 +365,7 @@ body {
   font-family: 'Press Start 2P', cursive;
 }
 
-.decks {
+.animate__backInLeft {
   margin: 20px;
 }
 

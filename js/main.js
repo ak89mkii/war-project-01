@@ -1,6 +1,10 @@
 /*------Constants------*/
 
 
+let sound = new Audio(`sounds/startUp.wav`);
+setTimeout(()=>{sound.play()},
+200)
+
 startArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 
 deckArray = ["s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA"]
@@ -30,7 +34,6 @@ const p1War = document.getElementById("pOneWar");
 const p2War = document.getElementById("pTwoWar");
 const score = document.getElementById("message");
 const tank = document.getElementById("ship");
-
 
 /*------Event Listeners------*/
 
