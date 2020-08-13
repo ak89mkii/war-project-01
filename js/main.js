@@ -1,11 +1,7 @@
 /*------Constants------*/
 
 
-init();
-
-function init() {
-    startArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-}
+startArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 
 deckArray = ["s02","s03","s04","s05", "s06", "s07","s08","s09","s10","sJ","sQ","sK","sA"]
 
@@ -42,6 +38,7 @@ const tank = document.getElementById("ship");
 // ADDEVENTLISTENER: NEW CARD BUTTON: Initiates FUNCTION 2.
 nextCard.addEventListener('click', function() {
     compareCard();
+    myPlay();
 })
 
 // ADDEVENTLISTENER: START / RESET BUTTON: Initiates FUNCTION 00.5.
@@ -52,6 +49,13 @@ startSet.addEventListener('click', function() {
 
 /*------Functions------*/
 
+
+// AUDIO FUNCTION:
+
+function myPlay() {
+    let audio = new Audio(`sounds/laser.wav`);
+    audio.play();
+}
 
 // FUNCTION 00: INIT: Game starts with cards faced down view and prompt players to start game (star / reset button).
 
@@ -327,3 +331,4 @@ function render(a, b) {
 // https://stackoverflow.com/questions/39690321/how-to-select-all-items-in-array-at-once-and-add-class-to-them
 // https://www.pixilart.com/art/space-invaders-ship-b32c69e04d7d64f
 // https://www.w3schools.com/css/css_positioning.asp
+// https://freesound.org/people/MikeE63/sounds/466834/
