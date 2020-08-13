@@ -353,6 +353,7 @@
 /* Main CSS: */
 body {
   text-align: center;
+  background-color: #eff1f5;
 }
 
 .decks {
@@ -383,16 +384,13 @@ body {
   margin: 0 auto;
   width: 700px;
   height:100px;
-  background-color: grey;
+  background-color: white;
   position: relative;
 }
 
 .theShip {
   height: 100px;
   border-radius: 20px;
-  border-style: solid;
-  border-color: orange;
-  border-width: 10px;
   position: center;
   
 }
@@ -400,9 +398,6 @@ body {
 .ship-r0 {
   height: 100px;
   border-radius: 20px;
-  border-style: solid;
-  border-color: orange;
-  border-width: 10px;
   position: absolute;
   right: 200px;
 }
@@ -410,9 +405,6 @@ body {
 .ship-l0 {
   height: 100px;
   border-radius: 20px;
-  border-style: solid;
-  border-color: orange;
-  border-width: 10px;
   position: absolute;
   left: 210px;
 }
@@ -420,9 +412,6 @@ body {
 .ship-r {
   height: 100px;
   border-radius: 20px;
-  border-style: solid;
-  border-color: orange;
-  border-width: 10px;
   position: absolute;
   right: 20px;
 }
@@ -430,9 +419,6 @@ body {
 .ship-l {
   height: 100px;
   border-radius: 20px;
-  border-style: solid;
-  border-color: orange;
-  border-width: 10px;
   position: absolute;
   left: 25px;
 }

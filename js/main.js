@@ -206,7 +206,7 @@ console.log("WAR 2!", pOneDeckNew, pTwoDeckNew)
 }
 
 function warCon3(pOneDeckNew, pTwoDeckNew) {
-    score.value = "1 in 4,739. Congratulations, you broke my game!"
+    score.value = "1/4,739. You broke my game!"
 
 console.log("WAR!", pOneDeckNew, pTwoDeckNew)
 }
