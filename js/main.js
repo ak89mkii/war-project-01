@@ -113,7 +113,7 @@ function compareCard() {
     render(cardPickedA, cardPickedB);
     
     if (splicedCardA[0] < splicedCardB[0]) {
-        score.value = "=>"
+        score.value = "Player 2 =>"
         tank.classList.add("ship-l0");
         for (let i = 0; i < splicedCardB.length; i++)
         pTwoDeckNew.push(splicedCardB[i], splicedCardA[i]);
@@ -122,7 +122,7 @@ function compareCard() {
        
 
     } else if (splicedCardA[0] > splicedCardB[0]) {
-        score.value = "<="
+        score.value = "<= Player 1"
         tank.classList.add("ship-r0");
         for (let i = 0; i < splicedCardA.length; i++)
         pOneDeckNew.push(splicedCardA[i], splicedCardB[i]);
@@ -138,8 +138,12 @@ function compareCard() {
         
     } else if (splicedCardA[0] === undefined) {
         score.value = "Player 2 Wins!"
+        nextCard.style.display = "none";
+        tank.classList.add("theShip");
     } else if (splicedCardB[0] === undefined) {
         score.value = "Player 1 Wins!"
+        nextCard.style.display = "none";
+        tank.classList.add("theShip");
     }
 }
 
@@ -206,7 +210,7 @@ console.log("WAR 2!", pOneDeckNew, pTwoDeckNew)
 }
 
 function warCon3(pOneDeckNew, pTwoDeckNew) {
-    score.value = "1/4,739. You broke my game!"
+    score.value = "1 in 4,739. You broke the game!"
 
 console.log("WAR!", pOneDeckNew, pTwoDeckNew)
 }
@@ -227,6 +231,10 @@ function render(a, b) {
         score.value = ""
         tank.classList.remove("theShip", "theShip-r", "theShip-l");
     }
+
+    // This should be able to replace below code.
+    // p1Deck.classList.add(deckArray[splicedCardA[0] -= 2]);
+    // p2Deck.classList.add(deckArray[splicedCardB[0] -= 2]);
     if (a === 14) {  
         p1Deck.classList.add(deckArray[12]);
     }
