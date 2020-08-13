@@ -6,14 +6,12 @@
 # Images:
 ![War Card Game Project Wireframe](images/warFrame.png)
 
-
 # Technologies:
 - HTML
 - CSS
 - JavaScript
 
 # Pseudocode Outline:
-
 
 ## Start-Up State:
 > Initial Array containing 52 numbers (4x 2 to 14).
@@ -35,6 +33,8 @@ Shows next pair in INDEX 0 (new cards).
 ## End State:
 >Game ends once a player accumulates all of the numbers (cards) OR player has an empty ARRAY.
 
+# Detailed Pseudocode:
+>
 
 # Stretch Goals:
 >Improve visual design.
