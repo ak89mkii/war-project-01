@@ -147,6 +147,9 @@ function compareCard() {
     } else if (splicedCardA[0].Value === splicedCardB[0].Value) {
         pOneDeckNew.unshift(splicedCardA[0])
         pTwoDeckNew.unshift(splicedCardB[0])
+        p1Deck.classList.add(splicedCardA[0].Suit);
+        p2Deck.classList.add(splicedCardB[0].Suit);
+        warCon(pOneDeckNew, pTwoDeckNew);
     } else if (splicedCardA[0] === undefined) {
         score.value = "Player 2 Wins!"
         nextCard.style.display = "none";
