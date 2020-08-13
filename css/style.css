@@ -356,6 +356,15 @@ body {
   background-color: #eff1f5;
 }
 
+.text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 50px;
+}
+
+.text-primary{ 
+  font-family: 'Press Start 2P', cursive;
+}
+
 .decks {
   margin: 20px;
 }
@@ -372,7 +381,8 @@ body {
   border-style: solid;
   border-color: black;
   border-width: 5px;
-  color: black;
+  color: orange;
+  background-color: #337AB7;
 }
 
 #reStart {
