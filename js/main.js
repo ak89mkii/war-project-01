@@ -7,7 +7,7 @@ setTimeout(()=>{sound.play()},
 
 // startArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 
-let startArray = [{Value: 14, Suit:"dA"},{Value: 11, Suit:"dQ"},{Value: 13, Suit:"dK"},{Value: 10, Suit:"dJ"},{Value: 10, Suit:"d10"},{Value: 9, Suit:"d09"},{Value: 8, Suit:"d08"},{Value: 7, Suit:"d07"},{Value: 6, Suit:"d06"},{Value: 5, Suit:"d05"},{Value: 4, Suit:"d04"},{Value: 3, Suit:"d03"},{Value: 2, Suit:"d02"},{Value: 14, Suit:"hA"},{Value: 12, Suit:"hQ"},{Value: 13, Suit:"hK"},{Value: 11, Suit:"hJ"},{Value: 10, Suit:"h10"},{Value: 9, Suit:"h09"},{Value: 8, Suit:"h08"},{Value: 7, Suit:"h07"},{Value: 6, Suit:"h06"},{Value: 5, Suit:"h05"},{Value: 4, Suit:"h04"},{Value: 3, Suit:"h03"},{Value: 2, Suit:"h02"},{Value: 14, Suit:"cA"},{Value: 12, Suit:"cQ"},{Value: 13, Suit:"cK"},{Value: 11, Suit:"cJ"},{Value: 10, Suit:"c10"},{Value: 9, Suit:"c09"},{Value: 8, Suit:"c08"},{Value: 7, Suit:"c07"},{Value: 6, Suit:"c06"},{Value: 5, Suit:"c05"},{Value: 4, Suit:"c04"},{Value: 3, Suit:"c03"},{Value: 2, Suit:"c02"},{Value: 14, Suit:"sA"},{Value: 12, Suit:"sQ"},{Value: 13, Suit:"sK"},{Value: 11, Suit:"sJ"},{Value:10, Suit:"s10"},{Value: 9, Suit:"s09"},{Value: 8, Suit:"s08"},{Value: 7, Suit:"s07"},{Value: 6, Suit:"s06"},{Value: 5, Suit:"s05"},{Value: 4, Suit:"s04"},{Value: 3, Suit:"s03"},{Value: 2, Suit:"s02"}]
+let startArray = [{Value: 14, Suit:"dA"},{Value: 11, Suit:"dQ"},{Value: 13, Suit:"dK"},{Value: 10, Suit:"dJ"},{Value: 10, Suit:"d10"},{Value: 9, Suit:"d09"},{Value: 8, Suit:"d08"},{Value: 7, Suit:"d07"},{Value: 6, Suit:"d06"},{Value: 5, Suit:"d05"},{Value: 4, Suit:"d04"},{Value: 3, Suit:"d03"},{Value: 2, Suit:"d02"},{Value: 14, Suit:"hA"},{Value: 12, Suit:"hQ"},{Value: 13, Suit:"hK"},{Value: 11, Suit:"hJ"},{Value: 10, Suit:"h10"},{Value: 9, Suit:"h09"},{Value: 8, Suit:"h08"},{Value: 7, Suit:"h07"},{Value: 6, Suit:"h06"},{Value: 5, Suit:"h05"},{Value: 4, Suit:"h04"},{Value: 3, Suit:"h03"},{Value: 2, Suit:"h02"},{Value: 14, Suit:"cA"},{Value: 12, Suit:"cQ"},{Value: 13, Suit:"cK"},{Value: 11, Suit:"cJ"},{Value: 10, Suit:"c10"},{Value: 9, Suit:"c09"},{Value: 8, Suit:"c08"},{Value: 7, Suit:"c07"},{Value: 6, Suit:"c06"},{Value: 5, Suit:"c05"},{Value: 4, Suit:"c04"},{Value: 3, Suit:"c03"},{Value: 2, Suit:"c02"},{Value: 14, Suit:"sA"},{Value: 12, Suit:"sQ"},{Value: 13, Suit:"sK"},{Value: 11, Suit:"sJ"},{Value: 10, Suit:"s10"},{Value: 9, Suit:"s09"},{Value: 8, Suit:"s08"},{Value: 7, Suit:"s07"},{Value: 6, Suit:"s06"},{Value: 5, Suit:"s05"},{Value: 4, Suit:"s04"},{Value: 3, Suit:"s03"},{Value: 2, Suit:"s02"}]
 
 
 const startDeck = randomizeDeck(startArray);
@@ -124,8 +124,18 @@ function compareCard() {
     let cardPickedA = splicedCardA[0]
     let cardPickedB = splicedCardB[0]
     render(cardPickedA, cardPickedB);
-    
-    if (splicedCardA[0].Value < splicedCardB[0].Value) {
+
+    if (pOneDeckNew[0] === undefined) {
+    score.value = "Player 2 Wins!"
+    nextCard.style.display = "none";
+    tank.classList.add("theShip");
+
+    } if (pOneDeckNew[0] === undefined) {
+    score.value = "Player 1 Wins!"
+    nextCard.style.display = "none";
+    tank.classList.add("theShip");
+
+    } else if (splicedCardA[0].Value < splicedCardB[0].Value) {
         score.value = "Player 2 =>"
         tank.classList.add("ship-l0");
         for (let i = 0; i < splicedCardB.length; i++)
@@ -134,7 +144,6 @@ function compareCard() {
         p2Deck.classList.add(splicedCardB[0].Suit);
         console.log("Two Won", pTwoDeckNew, "One Lost", pOneDeckNew)
        
-
     } else if (splicedCardA[0].Value > splicedCardB[0].Value) {
         score.value = "<= Player 1"
         tank.classList.add("ship-r0");
@@ -142,7 +151,6 @@ function compareCard() {
         pOneDeckNew.push(splicedCardA[i], splicedCardB[i]);
         p1Deck.classList.add(splicedCardA[0].Suit);
         p2Deck.classList.add(splicedCardB[0].Suit);
-        
 
     } else if (splicedCardA[0].Value === splicedCardB[0].Value) {
         pOneDeckNew.unshift(splicedCardA[0])
@@ -150,14 +158,6 @@ function compareCard() {
         p1Deck.classList.add(splicedCardA[0].Suit);
         p2Deck.classList.add(splicedCardB[0].Suit);
         warCon(pOneDeckNew, pTwoDeckNew);
-    } else if (splicedCardA[0] === undefined) {
-        score.value = "Player 2 Wins!"
-        nextCard.style.display = "none";
-        tank.classList.add("theShip");
-    } else if (splicedCardB[0] === undefined) {
-        score.value = "Player 1 Wins!"
-        nextCard.style.display = "none";
-        tank.classList.add("theShip");
     }
 }
 
@@ -190,7 +190,7 @@ function warCon(pOneDeckNew, pTwoDeckNew) {
         p1War.classList.add(war1[2].Suit);
         p2War.classList.add(war2[2].Suit);
         return pOneDeckNew
-    } if (pOneDeckNew[2] === pTwoDeckNew[2])
+    } if (pOneDeckNew[2].Value === pTwoDeckNew[2].Value)
         warCon2(pOneDeckNew, pTwoDeckNew);
 }
 
@@ -239,93 +239,7 @@ function render(a, b) {
         score.value = ""
         tank.classList.remove("theShip", "theShip-r", "theShip-l");
     }
-
-    if (a === 14) {  
-        p1Deck.classList.add(deckArray[12]);
-    }
-    if (b === 14) {  
-        p2Deck.classList.add(deckArray[12]);
-    }
-    if (a === 13) {  
-        p1Deck.classList.add(deckArray[11]);
-    }
-    if (b === 13) {  
-        p2Deck.classList.add(deckArray[11]);
-    }
-    if (a === 12) {  
-        p1Deck.classList.add(deckArray[10]);
-    }
-    if (b === 12) {  
-        p2Deck.classList.add(deckArray[10]);
-    }
-    if (a === 11) {  
-        p1Deck.classList.add(deckArray[9]);
-    }
-    if (b === 11) {  
-        p2Deck.classList.add(deckArray[9]);
-    }
-    if (a === 10) {  
-        p1Deck.classList.add(deckArray[8]);
-    }
-    if (b === 10) {  
-        p2Deck.classList.add(deckArray[8]);
-    }
-    if (a === 9) {  
-        p1Deck.classList.add(deckArray[7]);
-    }
-    if (b === 9) {  
-        p2Deck.classList.add(deckArray[7]);
-    }
-    if (a === 8) {  
-        p1Deck.classList.add(deckArray[6]);
-    }
-    if (b === 8) {  
-        p2Deck.classList.add(deckArray[6]);
-    }
-    if (a === 7) {  
-        p1Deck.classList.add(deckArray[5]);
-    }
-    if (b === 7) {  
-        p2Deck.classList.add(deckArray[5]);
-    }
-    if (a === 6) {  
-        p1Deck.classList.add(deckArray[4]);
-    }
-    if (b === 6) {  
-        p2Deck.classList.add(deckArray[4]);
-    }
-    if (a === 5) {  
-        p1Deck.classList.add(deckArray[3]);
-    }
-    if (b === 5) {  
-        p2Deck.classList.add(deckArray[3]);
-    }
-    if (a === 4) {  
-        p1Deck.classList.add(deckArray[2]);
-    }
-    if (b === 4) {  
-        p2Deck.classList.add(deckArray[2]);
-    }
-    if (a === 3) {  
-        p1Deck.classList.add(deckArray[1]);
-    }
-    if (b === 3) {  
-        p2Deck.classList.add(deckArray[1]);
-    }
-    if (a === 2) {  
-        p1Deck.classList.add(deckArray[0]);
-    }
-    if (b === 2) {  
-        p2Deck.classList.add(deckArray[0]);
-    }
 }
-
-
-// deckArray = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
-
-// This should be able to replace below code.
-// p1Deck.classList.add(deckArray[splicedCardA[0] -= 2]);
-// p2Deck.classList.add(deckArray[splicedCardB[0] -= 2]);
 
 
 // Some References:
