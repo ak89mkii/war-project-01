@@ -1,7 +1,7 @@
 /*------Constants------*/
 
 
-// let sound = new Audio(`sounds/startUp.wav`);
+let sound = new Audio(`sounds/startUp.wav`);
 setTimeout(()=>{sound.play()},
 200)
 
