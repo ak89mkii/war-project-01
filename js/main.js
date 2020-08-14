@@ -5,10 +5,7 @@
 setTimeout(()=>{sound.play()},
 200)
 
-// startArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-
 let startArray = [{Value: 14, Suit:"dA"},{Value: 11, Suit:"dQ"},{Value: 13, Suit:"dK"},{Value: 10, Suit:"dJ"},{Value: 10, Suit:"d10"},{Value: 9, Suit:"d09"},{Value: 8, Suit:"d08"},{Value: 7, Suit:"d07"},{Value: 6, Suit:"d06"},{Value: 5, Suit:"d05"},{Value: 4, Suit:"d04"},{Value: 3, Suit:"d03"},{Value: 2, Suit:"d02"},{Value: 14, Suit:"hA"},{Value: 12, Suit:"hQ"},{Value: 13, Suit:"hK"},{Value: 11, Suit:"hJ"},{Value: 10, Suit:"h10"},{Value: 9, Suit:"h09"},{Value: 8, Suit:"h08"},{Value: 7, Suit:"h07"},{Value: 6, Suit:"h06"},{Value: 5, Suit:"h05"},{Value: 4, Suit:"h04"},{Value: 3, Suit:"h03"},{Value: 2, Suit:"h02"},{Value: 14, Suit:"cA"},{Value: 12, Suit:"cQ"},{Value: 13, Suit:"cK"},{Value: 11, Suit:"cJ"},{Value: 10, Suit:"c10"},{Value: 9, Suit:"c09"},{Value: 8, Suit:"c08"},{Value: 7, Suit:"c07"},{Value: 6, Suit:"c06"},{Value: 5, Suit:"c05"},{Value: 4, Suit:"c04"},{Value: 3, Suit:"c03"},{Value: 2, Suit:"c02"},{Value: 14, Suit:"sA"},{Value: 12, Suit:"sQ"},{Value: 13, Suit:"sK"},{Value: 11, Suit:"sJ"},{Value: 10, Suit:"s10"},{Value: 9, Suit:"s09"},{Value: 8, Suit:"s08"},{Value: 7, Suit:"s07"},{Value: 6, Suit:"s06"},{Value: 5, Suit:"s05"},{Value: 4, Suit:"s04"},{Value: 3, Suit:"s03"},{Value: 2, Suit:"s02"}]
-
 
 const startDeck = randomizeDeck(startArray);
 
@@ -32,6 +29,7 @@ const p1War = document.getElementById("pOneWar");
 const p2War = document.getElementById("pTwoWar");
 const score = document.getElementById("message");
 const tank = document.getElementById("ship");
+
 
 /*------Event Listeners------*/
 
@@ -66,10 +64,8 @@ function loud() {
 }
 
 
-// FUNCTION 00: INIT: Game starts with cards faced down view and prompt players to start game (star / reset button).
-
-
-// FUNCTION 00.5: start / reset populates player card arrays with half of 52 cards from init array, randomized by  Math.floor and Math.random, providing index 0 for comparison (NOTE: Mechanics include display of index 0, then NEW CARD button initiates FUNCTION 2, compare, sort, and new card render.).
+// FUNCTION 00:
+// FUNCTION 00.5: 
 
 function randomizeDeck(arr) {
     let newPos,
@@ -100,13 +96,7 @@ function distDeck2() {
 }
 
 
-// FUNCTION 02: INDEX 0 COMPARE: compareCard(): Compare index 0 of player 1 and 2 arrays.
-    // WIN PLAYER 1: If index 0 of player 1 > player 2:
-        // Push winning number, then losing number to end of player 1 array (in order).
-    // WIN PLAYER 2: If index 0 of player 1 < player 2:
-        // Push winning number, then losing number to end of player 2 array (in order).
-    // TIE: resolve FUNCTION 01.
-    // If either player's index 0 === null, game ends, other player winner.
+// FUNCTION 02: INDEX 0 COMPARE: 
     // Call FUNCTION 03.
 
 let pOneDeckNew = distDeck1();
@@ -162,12 +152,7 @@ function compareCard() {
 }
 
 
-// FUNCTION 01: WAR: warCon(): If index 0 of player 1 array === index 0 of player 2 array, execute:
-    // Option 01: Skip comparison of next numbers to be loaded into index 0 for comparison in both arrays and load numbers after that OR Option 02: compare index 1 numbers.
-    // Option 01 (ONLY): Store skipped cards in "holding" array (warArray perhaps?).
-    // FUNCTION 02 to decide winner AND "payout" of "holding" array to winner.
-        // Order of "payout" of numbers / cards: winner revealed card, loser revealed card, winner "holding" array acending order (index 0, then 1...)
-    // If tie, repeat FUNCTION 01.
+// FUNCTION 01: WAR: warCon(): 
 
 function warCon(pOneDeckNew, pTwoDeckNew) {
     if (pOneDeckNew[2].Value < pTwoDeckNew[2].Value) {
@@ -224,7 +209,7 @@ function warCon3() {
 }
 
 
-// FUNCTION 03: RENDER TURN: newCards(): Display corresponding, index 0 cards on top of both player card piles.
+// FUNCTION 03: (UN)RENDER TURN: 
     
 function render(a, b) {
     if (a !== undefined) {  
@@ -241,16 +226,3 @@ function render(a, b) {
     }
 }
 
-
-// Some References:
-// https://dev.to/ycmjason/how-to-create-range-in-javascript-539i
-// https://www.youtube.com/watch?v=myL4xmtAVtw
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values
-// https://animate.style/
-// https://stackoverflow.com/questions/39690321/how-to-select-all-items-in-array-at-once-and-add-class-to-them
-// https://www.pixilart.com/art/space-invaders-ship-b32c69e04d7d64f
-// https://www.w3schools.com/css/css_positioning.asp
-// https://freesound.org/people/MikeE63/sounds/466834/
-// https://freesound.org/people/cydon/sounds/268557/
-// https://freesound.org/people/TolerableDruid6/sounds/458416/
-// https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
