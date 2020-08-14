@@ -120,7 +120,7 @@ function compareCard() {
     nextCard.style.display = "none";
     tank.classList.add("theShip");
 
-    } if (pOneDeckNew[0] === undefined) {
+    } else if (pTwoDeckNew[0] === undefined) {
     score.value = "Player 1 Wins!"
     nextCard.style.display = "none";
     tank.classList.add("theShip");
