@@ -3,7 +3,7 @@
 # Description:
 ### In the War card game, a deck of 52 playeing cards is split in half and distributed to two players. The cards are placed face down and both players reveal their respective top card. The higher of the two cards wins, and the owner of the card takes their winning card and the opponent's losing card and places them at the bottom of their deck. In the event of a tie, (both cards have the same value) "War" is initiated. During war, one card is place face down per player ad then one face up. The player with the higher card wins (ties repeat). The game ends once a player accumulates all 52 cards.
 
-# Deployment Link: (http://war-were-declared-2.surge.sh)
+# Deployment Link: (http://war-were-declared-3.surge.sh)
 
 # Images:
 ![War Card Game Project Wireframe](images/warFrame.png)
@@ -16,6 +16,7 @@
 - JavaScript
 - getbootstrap.com
 - freesounds.org
+- animate.css
 
 # Pseudocode Outline:
 
