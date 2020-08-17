@@ -470,8 +470,11 @@ body {
   body {
     text-align: center;
     background-color: #eff1f5;
-    position: center;
-    margin: auto;
+    margin: 0 auto;
+    width: 700px;
+    height: 100px;
+    background-color: white;
+    position: relative;
   }
 
   .animate__backInLeft {
