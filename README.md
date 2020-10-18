@@ -7,8 +7,8 @@
 
 # Images:
 ![War Card Game Project Wireframe](images/warFrame.png)
-![War Card Game Project Wireframe](images/shot.png)
-![War Card Game Project Wireframe](images/shot2.png)
+![01](images/shot.png)
+![02](images/shot2.png)
 
 # Technologies:
 - HTML
